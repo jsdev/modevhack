@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Wheel of Headlines</title>
+	<!--<link type="text/css" rel="stylesheet" href="css/mission-health.css">//-->
+	<link type="text/css" rel="stylesheet" href="css/wheel.css">
+</head>
+<body>
+
+<header><h1>Wheel of Headlines</h1></header>
+<!--<div class="splash-screen">
+Loading... Insert cool progress bar here.
+</div> //-->
+<div class="user-settings">
+	SPEECH
+	<label for="speech-on">ON</label><input id="speech-on" type="radio" value="speech-on" checked />
+	<label for="speech-off">OFF</label><input id="speech-off" type="radio" value="speech-off" />
+</div>
+<div class="board">
+	<section class="container">
+	</section><section
+	class="container">
+		<div class="card A flipped">
+			<figure class="front">A</figure>
+			<figure class="back"></figure>
+		</div>
+	</section><section
+	class="container">
+		<div class="card A flipped">
+			<figure class="front">A</figure>
+			<figure class="back"></figure>
+		</div>
+	</section><section
+	class="container">
+			<div class="card A flipped">
+				<figure class="front">A</figure>
+				<figure class="back"></figure>
+			</div>
+		</section><section class="container">
+		<div class="card B flipped">
+			<figure class="front">B</figure>
+			<figure class="back"></figure>
+		</div>
+	</section>
+</div>
+<div>current score: $<span class="score">0</span></div>
+<div>foreach match: $<span class="stake"></span></div>
+<div class="actions">
+	<h2>Say or press following commands:</h2>
+	<div class="pre-spin">
+		<button class="spin">"spin"</button>
+		<button>"I'd like to buy a vowel."</button>
+		<div class="vowels">
+			<button id="A" class="letter">A</button>
+			<button id="E" class="letter">E</button>
+			<button id="I" class="letter">I</button>
+			<button id="O" class="letter">O</button>
+			<button id="U" class="letter">U</button>
+		</div>
+	</div>
+
+	<div class="wheel">
+		<canvas id="canvas" width="328" height="315"></canvas>
+	</div>
+	<div class="post-spin">
+
+		<button>"I'll take a <input class="non-vowel" placeholder="any non vowel"></input> ."</button>
+		<div class="letters">
+			<button id="B" class="letter">B</button>
+			<button id="C" class="letter">C</button>
+			<button id="D" class="letter">D</button>
+			<button id="F" class="letter">F</button>
+			<button id="G" class="letter">G</button>
+			<button id="H" class="letter">H</button>
+			<button id="J" class="letter">J</button>
+			<button id="K" class="letter">K</button>
+			<button id="L" class="letter">L</button>
+			<button id="M" class="letter">M</button>
+			<button id="N" class="letter">N</button>
+			<button id="P" class="letter">P</button>
+			<button id="Q" class="letter">Q</button>
+			<button id="R" class="letter">R</button>
+			<button id="S" class="letter">S</button>
+			<button id="T" class="letter">T</button>
+			<button id="V" class="letter">V</button>
+			<button id="W" class="letter">W</button>
+			<button id="X" class="letter">X</button>
+			<button id="Y" class="letter">Y</button>
+			<button id="Z" class="letter">Z</button>
+		</div>
+	</div>
+	<button>"I'd like to solve the headline."</button>
+</div>
+
+<footer>#MoDevEastHack solo entry from @jsdev</footer>
+<audio id="audio-spin">
+	<source src='./sounds/wheel.mp3' />
+</audio>
+<script src="./js/jquery.js"></script>
+<script src="./js/wheel-of-headlines.js"></script>
+</body>
+</html>
+
+
