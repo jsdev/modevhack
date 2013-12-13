@@ -108,3 +108,8 @@ h1 b {
 .wheel {
   display: none;
 }
+
+#lifelineForm input{
+    display:block;
+    margin-bottom:10px;
+}
