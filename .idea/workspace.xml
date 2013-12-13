@@ -2,14 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef2251c3-1620-404d-8eea-1d8b4cff4cc3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wheel-of-headlines.html" afterPath="$PROJECT_DIR$/wheel-of-headlines.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/wheel-of-headlines.js" afterPath="$PROJECT_DIR$/js/wheel-of-headlines.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/wheel.css" afterPath="$PROJECT_DIR$/css/wheel.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="modevhack.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="ef2251c3-1620-404d-8eea-1d8b4cff4cc3" time="1386952959780" ignored="false" />
     <file path="/wheel-of-headlines.html" changelist="ef2251c3-1620-404d-8eea-1d8b4cff4cc3" time="1386972767047" ignored="false" />
-    <file path="/wheel-of-headlines.js" changelist="ef2251c3-1620-404d-8eea-1d8b4cff4cc3" time="1386970629999" ignored="false" />
+    <file path="/wheel-of-headlines.js" changelist="ef2251c3-1620-404d-8eea-1d8b4cff4cc3" time="1386974804428" ignored="false" />
     <file path="/wheel.css" changelist="ef2251c3-1620-404d-8eea-1d8b4cff4cc3" time="1386971444346" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,10 +31,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="wheel-of-headlines.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="wheel-of-headlines.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wheel-of-headlines.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="8" selection-start="575" selection-end="575" vertical-scroll-proportion="0.0">
+            <state line="32" column="103" selection-start="1197" selection-end="1197" vertical-scroll-proportion="-1.7647059">
               <folding />
             </state>
           </provider>
@@ -50,10 +51,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wheel-of-headlines.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="wheel-of-headlines.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/wheel-of-headlines.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="28" selection-start="1101" selection-end="1101" vertical-scroll-proportion="-6.6">
+            <state line="153" column="25" selection-start="2946" selection-end="2946" vertical-scroll-proportion="0.3088">
               <folding />
             </state>
           </provider>
@@ -62,7 +63,7 @@
       <file leaf-file-name="wheel.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/wheel.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="99" selection-start="587" selection-end="587" vertical-scroll-proportion="-26.4">
+            <state line="137" column="1" selection-start="2525" selection-end="2525" vertical-scroll-proportion="-26.84">
               <folding />
             </state>
           </provider>
@@ -87,9 +88,9 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/js/jquery.js" />
+        <option value="$PROJECT_DIR$/wheel-of-headlines.html" />
         <option value="$PROJECT_DIR$/css/wheel.css" />
         <option value="$PROJECT_DIR$/js/wheel-of-headlines.js" />
-        <option value="$PROJECT_DIR$/wheel-of-headlines.html" />
       </list>
     </option>
   </component>
@@ -331,21 +332,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/wheel.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="99" selection-start="587" selection-end="587" vertical-scroll-proportion="-26.4">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/wheel-of-headlines.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="28" selection-start="1101" selection-end="1101" vertical-scroll-proportion="-6.6">
+        <state line="137" column="1" selection-start="2525" selection-end="2525" vertical-scroll-proportion="-26.84">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wheel-of-headlines.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="8" selection-start="575" selection-end="575" vertical-scroll-proportion="0.0">
+        <state line="32" column="103" selection-start="1197" selection-end="1197" vertical-scroll-proportion="-1.7647059">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/wheel-of-headlines.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="153" column="25" selection-start="2946" selection-end="2946" vertical-scroll-proportion="0.3088">
           <folding />
         </state>
       </provider>

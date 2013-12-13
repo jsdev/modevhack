@@ -32,6 +32,137 @@ $.ajax({
 	}
 });
 
+var checkForCommands = function () {
+	var said = $('.mic').val().toUpperCase(),
+		last;
+
+	if (1 + said.indexOf('SPIN')) {
+		$spin.click();
+		return;
+	}
+	if (1 + said.indexOf('BUY THE LETTER')) {
+		last = said.slice(-1);
+		if (1 + last.indexOf('A')) {
+			$('#A').click();
+			return;
+		}
+		if (1 + last.indexOf('E')) {
+			$('#E').click();
+			return;
+		}
+		if (1 + last.indexOf('I')) {
+			$('#I').click();
+			return;
+		}
+		if (1 + last.indexOf('O')) {
+			$('#O').click();
+			return;
+		}
+		if (1 + last.indexOf('U')) {
+			$('#U').click();
+			return;
+		}
+		$vowels.click();
+		return;
+	}
+
+	if (1 + said.indexOf("THE LETTER")) {
+		last = said.slice(-1);
+		if (1 + last.indexOf('B')) {
+			$('#B').click();
+			return;
+		}
+		if (1 + last.indexOf('C')) {
+			$('#C').click();
+			return;
+		}
+		if (1 + last.indexOf('D')) {
+			$('#D').click();
+			return;
+		}
+		if (1 + last.indexOf('F')) {
+			$('#F').click();
+			return;
+		}
+		if (1 + last.indexOf('G')) {
+			$('#G').click();
+			return;
+		}
+		if (1 + last.indexOf('H')) {
+			$('#H').click();
+			return;
+		}
+		if (1 + last.indexOf('J')) {
+			$('#J').click();
+			return;
+		}
+		if (1 + last.indexOf('K')) {
+			$('#K').click();
+			return;
+		}
+		if (1 + last.indexOf('L')) {
+			$('#L').click();
+			return;
+		}
+		if (1 + last.indexOf('M')) {
+			$('#M').click();
+			return;
+		}
+		if (1 + last.indexOf('N')) {
+			$('#N').click();
+			return;
+		}
+		if (1 + last.indexOf('P')) {
+			$('#P').click();
+			return;
+		}
+		if (1 + last.indexOf('Q')) {
+			$('#Q').click();
+			return;
+		}
+		if (1 + last.indexOf('R')) {
+			$('#R').click();
+			return;
+		}
+		if (1 + last.indexOf('S')) {
+			$('#S').click();
+			return;
+		}
+		if (1 + last.indexOf('T')) {
+			$('#T').click();
+			return;
+		}
+		if (1 + last.indexOf('V')) {
+			$('#V').click();
+			return;
+		}
+		if (1 + last.indexOf('W')) {
+			$('#W').click();
+			return;
+		}
+		if (1 + last.indexOf('X')) {
+			$('#X').click();
+			return;
+		}
+		if (1 + last.indexOf('Y')) {
+			$('#Y').click();
+			return;
+		}
+		if (1 + last.indexOf('Z')) {
+			$('#Z').click();
+			return;
+		}
+		$consts.click();
+		return;
+	}
+
+};
+
+if( document.createElement('input').webkitSpeech !== undefined ) {
+	$('.user-settings b').eq(1).append('<input type="text" class="mic" tabindex="-1" x-webkit-speech />')
+		.find('input')[0].onwebkitspeechchange = checkForCommands;
+}
+
 var $board = $('.board'),
 	$solve = document.getElementById('solve'),
 	$consts = $('#consts'),
