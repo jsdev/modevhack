@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef2251c3-1620-404d-8eea-1d8b4cff4cc3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wheel-of-headlines.html" afterPath="$PROJECT_DIR$/wheel-of-headlines.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/wheel-of-headlines.js" afterPath="$PROJECT_DIR$/js/wheel-of-headlines.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/wheel.css" afterPath="$PROJECT_DIR$/css/wheel.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="modevhack.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,7 +52,7 @@
       <file leaf-file-name="wheel-of-headlines.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/wheel-of-headlines.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="31" selection-start="1813" selection-end="1813" vertical-scroll-proportion="0.33284885">
+            <state line="75" column="0" selection-start="2139" selection-end="2288" vertical-scroll-proportion="0.42005813">
               <folding />
             </state>
           </provider>
@@ -346,7 +343,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/wheel-of-headlines.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="31" selection-start="1813" selection-end="1813" vertical-scroll-proportion="0.33284885">
+        <state line="75" column="0" selection-start="2139" selection-end="2288" vertical-scroll-proportion="0.42005813">
           <folding />
         </state>
       </provider>
