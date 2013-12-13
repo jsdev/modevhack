@@ -109,6 +109,7 @@ h1 b {
 .wheel {
   display: none;
 }
+
 button {
 	color: #FFF;
 	background: #080;
@@ -121,4 +122,8 @@ button:disabled {
 	color: transparent;
 	background: black;
 	-webkit-transition: background .5s, color: .5s;
+
+#lifelineForm input{
+    display:block;
+    margin-bottom:10px;
 }

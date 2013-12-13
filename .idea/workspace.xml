@@ -2,7 +2,45 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef2251c3-1620-404d-8eea-1d8b4cff4cc3" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sendgrid-php/lib/SendGrid/Api.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sendgrid-php/test/SendGrid/Api.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sendgrid-php/lib/SendGrid/AuthException.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sendgrid-php/test/SendGrid/AuthException.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sendgrid-php/lib/SendGrid/Email.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sendgrid-php/test/SendGrid/Email.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sendgrid-php/lib/SendGrid/EmailInterface.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unirest-php/lib/Unirest/HttpMethod.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unirest-php/lib/Unirest/HttpResponse.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unirest-php/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sendgrid-php/MIT.LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sendgrid-php/lib/SendGrid/Mail.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sendgrid-php/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unirest-php/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sendgrid-php/lib/SendGrid.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sendgrid-php/test/SendGrid.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sendgrid-php/lib/SendGrid/Smtp.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sendgrid-php/test/SendGrid/Smtp.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sendgrid-php/lib/SendGrid/SmtpapiHeaders.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unirest-php/lib/Unirest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unirest-php/lib/Unirest/Unirest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unirest-php/test/Unirest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unirest-php/test/Unirest/UnirestTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sendgrid-php/lib/SendGrid/Web.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sendgrid-php/test/SendGrid/Web.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sendgrid-php/test/bootstrap.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sendgrid-php/test/gif.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sendgrid-php/test/phpunit.xml.dist" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sendgrid-php/test/text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sendgrid-php/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unirest-php/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unirest-php/test/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sendgrid-php/.travis.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unirest-php/.travis.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sendgrid-php/composer.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unirest-php/composer.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sendmail.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wheel-of-headlines.html" afterPath="$PROJECT_DIR$/wheel-of-headlines.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/wheel.css" afterPath="$PROJECT_DIR$/css/wheel.css" />
     </list>
     <ignored path="modevhack.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,11 +67,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="wheel-of-headlines.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="wheel-of-headlines.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wheel-of-headlines.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="2" selection-start="553" selection-end="553" vertical-scroll-proportion="0.3419453">
-              <folding />
+            <state line="29" column="2" selection-start="1026" selection-end="1026" vertical-scroll-proportion="-3.3088236">
+              <folding>
+                <marker date="1386972535000" expanded="true" signature="312:558" placeholder="..." />
+                <marker date="1386972535000" expanded="true" signature="319:549" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -58,10 +99,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wheel.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="wheel.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/wheel.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="116" column="22" selection-start="2240" selection-end="2240" vertical-scroll-proportion="-22.64">
+            <state line="127" column="23" selection-start="2417" selection-end="2417" vertical-scroll-proportion="2.0271041">
               <folding />
             </state>
           </provider>
@@ -87,14 +128,14 @@
       <list>
         <option value="$PROJECT_DIR$/js/jquery.js" />
         <option value="$PROJECT_DIR$/js/wheel-of-headlines.js" />
-        <option value="$PROJECT_DIR$/css/wheel.css" />
         <option value="$PROJECT_DIR$/wheel-of-headlines.html" />
+        <option value="$PROJECT_DIR$/css/wheel.css" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="457" />
-    <option name="y" value="179" />
+    <option name="x" value="235" />
+    <option name="y" value="22" />
     <option name="width" value="1440" />
     <option name="height" value="874" />
   </component>
@@ -237,8 +278,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="457" y="179" width="1440" height="874" extended-state="6" />
-    <editor active="false" />
+    <frame x="235" y="22" width="1440" height="874" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -335,16 +376,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/wheel.css">
+    <entry file="file://$PROJECT_DIR$/wheel-of-headlines.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="22" selection-start="2240" selection-end="2240" vertical-scroll-proportion="-22.64">
-          <folding />
+        <state line="29" column="2" selection-start="1026" selection-end="1026" vertical-scroll-proportion="-3.3088236">
+          <folding>
+            <marker date="1386972535000" expanded="true" signature="312:558" placeholder="..." />
+            <marker date="1386972535000" expanded="true" signature="319:549" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wheel-of-headlines.html">
+    <entry file="file://$PROJECT_DIR$/css/wheel.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="2" selection-start="553" selection-end="553" vertical-scroll-proportion="0.3419453">
+        <state line="127" column="23" selection-start="2417" selection-end="2417" vertical-scroll-proportion="2.0271041">
           <folding />
         </state>
       </provider>
