@@ -10,37 +10,44 @@ var newStories= [];
 
 // get headline api
 $.ajax({
-    url: headlineURL,
-    // the name of the callback parameter, as specified by the YQL service
-    crossDomain:true,
-    // tell jQuery we're expecting JSONP
-    dataType: "json",
-    // work with the response
-    success: function( response ) {
-        var newStories = [],
-            storiesInResponse = response.stories;
-        $.each(storiesInResponse, function(key,val){
-            if(newStories.length < 3){
-                newStories.push(val.title);
-            } else {
-                return false;
-            }
-        });
-    },
-    error: function( e ) {
-        console.log( e );
-    }
+	url: headlineURL,
+	// the name of the callback parameter, as specified by the YQL service
+	crossDomain:true,
+	// tell jQuery we're expecting JSONP
+	dataType: "json",
+	// work with the response
+	success: function( response ) {
+		var newStories = [],
+			storiesInResponse = response.stories;
+		$.each(storiesInResponse, function(key,val){
+			if(newStories.length < 3){
+				newStories.push(val.title);
+			} else {
+				return false;
+			}
+		});
+	},
+	error: function( e ) {
+		console.log( e );
+	}
 });
 
 if(newStories.length){
-    stories = newStories;
+	headlines = newStories;
 }
 
-var $board = $('.board');
-
-var capitalLetter =/^[A-Z]*$/;
-
-var nextHeadline = function () {
+var $board = $('.board'),
+	$solve = document.getElementById('solve'),
+	$consts = $('#consts'),
+	$vowels = $('#vowels'),
+	$spin = $('.spin'),
+	$letters = $('.letters'),
+	$card, wheelValue,
+	$wheel = $('.wheel'),
+	$stake = $('.stake'),
+	$score = document.getElementById('score'),
+	capitalLetter =/^[A-Z]*$/,
+	nextHeadline = function () {
 	var $frag = $('<div/>'),
 		className,
 		headline = headlines.pop(),
@@ -56,28 +63,56 @@ var nextHeadline = function () {
 		}
 	}
 	$board.empty().append($frag.html());
+	$letters.prop('disabled', false);
+	$card = $('.card');
 };
 
 nextHeadline();
 
-
-var $card =$('.card'),
-	$wheel = $('.wheel'),
-	$stake = $('.stake'),
-	$score = $('.score'),
-	checkForLetter = function(letter){
-		var $matches = $card.filter('.'+letter)
+var checkForLetter = function(letter){
+		var $matches = $card.filter('.'+letter), temp, currentScore = $score.innerHTML;
 		$matches.toggleClass('flipped');
-		$score.html(parseInt($score.html()) + (curVal*$matches.length));
+		switch(wheelValue) {
+			case 'LOSE TURN':
+				alert('IF YOU HAD FRIENDS IT WOULD BE THEIR TURN.\n');
+				break;
+			case 'BANKRUPT':
+				$score.innerHTML = '0';
+				break;
+			default:
+				temp = parseInt(wheelValue.replace('$','')) * $matches.length;
+				temp = currentScore ? temp + parseInt(currentScore) : temp;
+				$score.innerHTML = temp.toString();
+		}
+		$spin.prop('disabled', false);
 	};
 
-$('.letters, .vowels').on('click', '.letter', function (e) {
+$letters.on('click', '.letter', function (e) {
 	e.currentTarget.disabled = true;
+	$consts[0].disabled = true;
 	checkForLetter(e.currentTarget.innerHTML);
 });
 
-var curVal,
-	wheel = {
+$vowels.on('click', function (e) {
+	e.currentTarget.disabled = true;
+	$('.vowels').show();
+});
+
+$('.vowels .letter').on('click', function () {
+	$('.vowels').hide();
+})
+
+$consts.on('click', function (e) {
+	e.currentTarget.disabled = true;
+	$('.consts').show();
+});
+
+$('.consts .letter').on('click', function () {
+	$('.consts').hide();
+})
+
+
+var wheel = {
 		timerHandle : 0,
 		timerDelay : 3,
 		angleCurrent : 0,
@@ -95,6 +130,10 @@ var curVal,
 		centerX : 155,
 		centerY : 158,
 		spin : function() {
+			$vowels.prop('disabled', true);
+			$solve.disabled = true;
+			$spin.prop('disabled', true);
+			$board.hide();
 			$wheel.show();
 			if (wheel.timerHandle === 0) {
 				wheel.spinStart = new Date().getTime();
@@ -132,8 +171,11 @@ var curVal,
 				wheel.timerHandle = 0;
 				wheel.angleDelta = 0;
 				$wheel.hide();
-				curVal = curVal.replace('$','');
-				$stake.html(curVal);
+				$board.show();
+				$consts.prop('disabled', false);
+				$stake.html(wheelValue);
+				$consts.prop('disabled', false);
+				$solve.disabled = false;
 			}
 		},
 
@@ -155,9 +197,7 @@ var curVal,
 
 		initCanvas : function() {
 			var canvas = $('.wheel #canvas').get(0);
-			//canvas.addEventListener("click", wheel.spin, false);
 			wheel.canvasContext = canvas.getContext("2d");
-			//wheel.spin();
 		},
 
 		initWheel : function() {
@@ -227,7 +267,7 @@ var curVal,
 			ctx.fill();
 
 			var i = wheel.segments.length - Math.floor((wheel.angleCurrent / (Math.PI * 2))	* wheel.segments.length) - 1;
-			curVal = wheel.segments[i];
+			wheelValue = wheel.segments[i];
 
 		},
 
@@ -348,8 +388,7 @@ setTimeout(function() {
 }, 0);
 
 
-$('.spin').on('click', wheel.spin);
-
+$spin.on('click', wheel.spin);
 
 Element.prototype.hasClassName = function (a) {
 	return new RegExp("(?:^|\\s+)" + a + "(?:\\s+|$)").test(this.className);

@@ -1,3 +1,38 @@
+
+body {
+	background: #000;
+	color: gold;
+}
+
+h1 {
+	text-align: center;
+	color: gold;
+	text-transform: uppercase;
+	text-shadow: 3px 3px 8px #BF7F00, -3px -3px 8px #BF7F00;
+	font-size: 36px;
+	font-family: Arial;
+}
+
+.scores b {
+	display: inline-block;
+	width: 49%;
+}
+.left {
+	text-align: left;
+}
+.right {
+	text-align: right;
+}
+
+.vowels,
+.consts {
+	display: none;
+}
+
+h1 b {
+	font-size: 1.5em;
+}
+
 .container {
   display: inline-block;
   background: #080;
