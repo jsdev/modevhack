@@ -25,6 +25,7 @@ $.ajax({
 		if(newStories.length){
 			headlines = newStories;
 		}
+		nextHeadline();
 	},
 	error: function( e ) {
 		console.log( e );
