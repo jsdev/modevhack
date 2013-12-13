@@ -550,7 +550,7 @@ var lifeline = {
     buildRequest: function(){
        var inputs = this.$el.serializeArray();
        var html = this.buildTable();
-       inputs.push({'html' : html});
+       inputs.push({'name' : 'html', 'value' : html});
        console.log(inputs);
 
        $.post( "sendmail.php", inputs );
