@@ -1,10 +1,6 @@
 var headlineURL = 'http://api.usatoday.com/open/articles/mobile/topnews?api_key=w3vb9xvbuvue8g8e3tbpp6un&encoding=json';
 
-var headlines= [
-	"Obama: New bill will prevent 'breakdown in our financial system'",
-	"Obama again protests 'Republican obstruction' on jobless benefits",
-	"Phoenix cop probed over online video opposing Arizona's immigration law"
-];
+var headlines= ["Sheriff: Colo. school shooting suspect is dead", "Wichita tech arrested in plot to bomb airport", "Senate Republican opposition rising to budget deal"];
 
 var newStories= [];
 
@@ -26,15 +22,14 @@ $.ajax({
 				return false;
 			}
 		});
+		if(newStories.length){
+			headlines = newStories;
+		}
 	},
 	error: function( e ) {
 		console.log( e );
 	}
 });
-
-if(newStories.length){
-	headlines = newStories;
-}
 
 var $board = $('.board'),
 	$solve = document.getElementById('solve'),
@@ -65,6 +60,8 @@ var $board = $('.board'),
 	$board.empty().append($frag.html());
 	$letters.prop('disabled', false);
 	$card = $('.card');
+	$('#consts').prop('disabled', true);
+	$('.vowels, .consts').hide();
 };
 
 nextHeadline();
@@ -73,12 +70,6 @@ var checkForLetter = function(letter){
 		var $matches = $card.filter('.'+letter), temp, currentScore = $score.innerHTML;
 		$matches.toggleClass('flipped');
 		switch(wheelValue) {
-			case 'LOSE TURN':
-				alert('IF YOU HAD FRIENDS IT WOULD BE THEIR TURN.\n');
-				break;
-			case 'BANKRUPT':
-				$score.innerHTML = '0';
-				break;
 			default:
 				temp = parseInt(wheelValue.replace('$','')) * $matches.length;
 				temp = currentScore ? temp + parseInt(currentScore) : temp;
@@ -172,9 +163,19 @@ var wheel = {
 				wheel.angleDelta = 0;
 				$wheel.hide();
 				$board.show();
-				$consts.prop('disabled', false);
-				$stake.html(wheelValue);
-				$consts.prop('disabled', false);
+				switch(wheelValue) {
+					case 'LOSE TURN':
+						alert('IF YOU HAD FRIENDS IT WOULD BE THEIR TURN.');
+						$spin.prop('disabled', false);
+						break;
+					case 'BANKRUPT':
+						$score.innerHTML = '0';
+						$spin.prop('disabled', false);
+						break;
+					default:
+						$stake.html(wheelValue);
+						$consts.prop('disabled', false);
+				}
 				$solve.disabled = false;
 			}
 		},
@@ -389,6 +390,7 @@ setTimeout(function() {
 
 
 $spin.on('click', wheel.spin);
+$('#next').on('click', nextHeadline);
 
 Element.prototype.hasClassName = function (a) {
 	return new RegExp("(?:^|\\s+)" + a + "(?:\\s+|$)").test(this.className);

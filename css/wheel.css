@@ -13,7 +13,8 @@ h1 {
 	font-family: Arial;
 }
 
-.scores b {
+.scores b,
+.user-settings b{
 	display: inline-block;
 	width: 49%;
 }
@@ -107,4 +108,17 @@ h1 b {
 
 .wheel {
   display: none;
+}
+button {
+	color: #FFF;
+	background: #080;
+	line-height: 1.5em;
+	text-shadow: 1px 1px 1px black;
+	border: transparent;
+}
+
+button:disabled {
+	color: transparent;
+	background: black;
+	-webkit-transition: background .5s, color: .5s;
 }
