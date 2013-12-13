@@ -531,6 +531,7 @@ var lifeline = {
         this.$el = $('#lifelineForm');
         this.$submit = this.$el.find('#submitLifeLine');
         this.$board = $('.board');
+        this.div = $('#askForALifeLine');
     },
 
     init : function(){
@@ -553,6 +554,7 @@ var lifeline = {
        console.log(inputs);
 
        $.post( "sendmail.php", inputs );
+       this.div.append('Your LifeLine has been sent out.');
     },
 
     buildTable: function(){
@@ -567,9 +569,9 @@ var lifeline = {
                     return (this.textContent || this.innerText);
                 }).text(),
                 isBlank = ($me.find('.card').length === 0),
-                myStyle = (isBlank) ? 'style = "background-color: rgb(0, 136, 0);"' : 'style = "background-color: rgb(0, 0, 170);"' ;
+                myStyle = (isBlank) ? 'style = \"background-color: rgb(0, 136, 0);\"' : 'style = \"background-color: rgb(0, 0, 170);\"' ;
                 if(!isBlank && !isFlipped) {
-                    myStyle = 'style = "background-color: #ffffff;"';
+                    myStyle = 'style=\"background-color: #ffffff;\"';
                 }
             var myText = (letter) ? letter : '',
                 myHTML = '<td ' + myStyle + '>' + myText + '</td>';
