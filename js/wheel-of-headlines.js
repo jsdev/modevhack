@@ -560,7 +560,7 @@ var lifeline = {
     buildTable: function(){
         var $sections = this.$board.find('section.container'),
             self = this,
-            html = '<table><tr>';
+            html = '<table width=\"100%\"><tr>';
 
         $sections.each(function(){
             var $me = $(this),
@@ -573,7 +573,8 @@ var lifeline = {
                 if(!isBlank && !isFlipped) {
                     myStyle = 'style=\"background-color: #ffffff;\"';
                 }
-            var myText = (letter) ? letter : '',
+                myStyle += ' width:10%; height:20px;';
+            var myText = (letter && !isFlipped) ? letter : '&nbsp;',
                 myHTML = '<td ' + myStyle + '>' + myText + '</td>';
             html += myHTML;
         });
