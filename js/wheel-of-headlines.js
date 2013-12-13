@@ -390,6 +390,65 @@ setTimeout(function() {
 
 $spin.on('click', wheel.spin);
 
+
+/* form handling */
+var lifeline = {
+    myObjs : function(){
+        this.$el = $('#lifelineForm');
+        this.$submit = this.$el.find('#submitLifeLine');
+        this.$board = $('.board');
+    },
+
+    init : function(){
+        this.myObjs();
+        this.assignHandlers();
+    },
+
+    assignHandlers : function(){
+        var self = this;
+        this.$el.submit(function(evt){
+            evt.preventDefault();
+            self.buildRequest(evt);
+        });
+    },
+
+    buildRequest: function(){
+       var inputs = this.$el.serializeArray();
+       var html = this.buildTable();
+       inputs.push({'html' : html});
+       console.log(inputs);
+
+       $.post( "sendmail.php", inputs );
+    },
+
+    buildTable: function(){
+        var $sections = this.$board.find('section.container'),
+            self = this,
+            html = '<table><tr>';
+
+        $sections.each(function(){
+            var $me = $(this),
+                isFlipped = $me.find('.card').hasClass('flipped'),
+                letter = $me.find('figure').filter(function () {
+                    return (this.textContent || this.innerText);
+                }).text(),
+                isBlank = ($me.find('.card').length === 0),
+                myStyle = (isBlank) ? 'style = "background-color: rgb(0, 136, 0);"' : 'style = "background-color: rgb(0, 0, 170);"' ;
+                if(!isBlank && !isFlipped) {
+                    myStyle = 'style = "background-color: #ffffff;"';
+                }
+            var myText = (letter) ? letter : '',
+                myHTML = '<td ' + myStyle + '>' + myText + '</td>';
+            html += myHTML;
+        });
+        html += '</tr></table>';
+        return html;
+    }
+};
+
+lifeline.init();
+
+
 Element.prototype.hasClassName = function (a) {
 	return new RegExp("(?:^|\\s+)" + a + "(?:\\s+|$)").test(this.className);
 };
@@ -410,3 +469,4 @@ Element.prototype.removeClassName = function (b) {
 Element.prototype.toggleClassName = function (a) {
 	this[this.hasClassName(a) ? "removeClassName" : "addClassName"](a);
 };
+
