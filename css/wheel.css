@@ -13,7 +13,8 @@ h1 {
 	font-family: Arial;
 }
 
-.scores b {
+.scores b,
+.user-settings b{
 	display: inline-block;
 	width: 49%;
 }
@@ -109,7 +110,29 @@ h1 b {
   display: none;
 }
 
+button {
+	color: #FFF;
+	background: #080;
+	line-height: 1.5em;
+	text-shadow: 1px 1px 1px black;
+	border: transparent;
+}
+
+button:disabled {
+	color: transparent;
+	background: black;
+	-webkit-transition: background .5s, color: .5s;
+
 #lifelineForm input{
     display:block;
     margin-bottom:10px;
+}
+
+.mic {
+	position: absolute;
+	right: .9em;
+	top: .2em;
+	width: 1em;
+	font-size: 1.5em;
+	border: 0 none;
 }
