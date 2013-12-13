@@ -1,9 +1,40 @@
+var headlineURL = 'http://api.usatoday.com/open/articles/mobile/topnews?api_key=w3vb9xvbuvue8g8e3tbpp6un&encoding=json';
 
 var stories= [
 	"Obama: New bill will prevent 'breakdown in our financial system'",
 	"Obama again protests 'Republican obstruction' on jobless benefits",
 	"Phoenix cop probed over online video opposing Arizona's immigration law"
 ];
+
+var newStories= [];
+
+// get headline api
+$.ajax({
+    url: headlineURL,
+    // the name of the callback parameter, as specified by the YQL service
+    crossDomain:true,
+    // tell jQuery we're expecting JSONP
+    dataType: "json",
+    // work with the response
+    success: function( response ) {
+        var newStories = [],
+            storiesInResponse = response.stories;
+        $.each(storiesInResponse, function(key,val){
+            if(newStories.length < 3){
+                newStories.push(val.title);
+            } else {
+                return false;
+            }
+        });
+    },
+    error: function( e ) {
+        console.log( e );
+    }
+});
+
+if(newStories.length){
+    stories = newStories;
+}
 
 var $card =$('.card'),
 	$wheel = $('.wheel'),
