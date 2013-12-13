@@ -1,9 +1,33 @@
 
-var stories= [
+var headlines= [
 	"Obama: New bill will prevent 'breakdown in our financial system'",
 	"Obama again protests 'Republican obstruction' on jobless benefits",
 	"Phoenix cop probed over online video opposing Arizona's immigration law"
 ];
+
+var $board = $('.board');
+
+var capitalLetter =/^[A-Z]*$/;
+
+var nextHeadline = function () {
+	var $frag = $('<div/>'),
+		className,
+		headline = headlines.pop(),
+		chars = headline.toUpperCase().split('');
+	for (var i = 0, len = chars.length, char = chars[i]; i < len; i++, char = chars[i] ) {
+		className = char.match(capitalLetter) ? 'card ' + char + ' flipped' : 'card';
+		switch (char) {
+			case " ":
+				$frag.append('<section class="container" />');
+				break;
+			default:
+				$frag.append('<section class="container"><div class="'+className+'"><figure class="front">'+char+'</figure><figure class="back"></figure></div></section>');
+		}
+	}
+	$board.empty().append($frag.html());
+};
+
+nextHeadline();
 
 var $card =$('.card'),
 	$wheel = $('.wheel'),
