@@ -91,6 +91,20 @@ Loading... Insert cool progress bar here.
 	</div>
 	<button>"I'd like to solve the headline."</button>
 </div>
+<div id="askForALifeLine">
+    <h2>Lifeline: Ask for Help From a Friend</h2>
+    <form action="sendmail.php" method="post">
+        <label for="emailTo">
+            <input type="text" name="emailTo" id="emailTo" />
+        </label>
+
+        <label for="emailFrom">
+            <input type="text" name="emailFrom" id="emailFrom" />
+        </label>
+
+        <input type="submit" />
+    </form>
+</div>
 
 <audio id="audio-spin">
 	<source src='./sounds/wheel.mp3' />
