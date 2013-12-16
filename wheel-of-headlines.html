@@ -1,83 +1,77 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>WHEEL OF HEADLINES</title>
-	<link type="text/css" rel="stylesheet" href="css/wheel.css">
-</head>
-<body>
+	<head>
+		<title>WHEEL OF HEADLINES</title>
+		<link type="text/css" rel="stylesheet" href="css/wheel.css">
+	</head>
+	<body>
+		<div class="game">
+			<header><h1><b>W</b>HEEL OF <b>H</b>EADLINES</h1></header>
 
-<header><h1><b>W</b>HEEL OF <b>H</b>EADLINES</h1></header>
-<div class="user-settings right">
-	<b class="left"><button id="next">NEW HEADLINE</button></b><b class="right">
-	<!--SPEECH:
-	<label for="speech-on">ON</label><input id="speech-on" type="radio" name="speech" value="speech-on" checked />
-	<label for="speech-off">OFF</label><input id="speech-off" type="radio" name="speech	" value="speech-off" />
-	-->
+			<div class="user-settings">
+				<b class="left"><button id="next">NEW HEADLINE</button></b><b class="right">
+				<button class="sendgrid" title="EMAIL A FRIEND"></button>
+				</b>
+			</div>
+			
+			<div class="board"></div>
+			
+			<div class="scores"><b class="left">current: $<span id="score">0</span></b><b class="middle">total: $<span id="total">0</span></b><b class="right">spun: <span class="stake"></span></b></div>
+			
+			<div class="wheel">
+				<canvas id="canvas" width="328" height="315"></canvas>
+			</div>
+			
+			<div class="actions">
+				<button id="solve">SOLVE IT</button>
+				<button class="spin">SPIN THE WHEEL</button>
+				<button id="vowel">BUY A VOWEL</button>
+				<section class="letters vowels">
+					<button id="A" class="letter">A</button>
+					<button id="E" class="letter">E</button>
+					<button id="I" class="letter">I</button>
+					<button id="O" class="letter">O</button>
+					<button id="U" class="letter">U</button>
+				</section>
 
-	</b>
-</div>
-<div class="board"></div>
-<div class="scores"><b class="left">current score: $<span id="score">0</span></b><b class="right">spinner: <span class="stake"></span></b></div>
-<div class="wheel">
-	<canvas id="canvas" width="328" height="315"></canvas>
-</div>
-
-<div class="actions">
-	<button id="solve">I'd like to solve the headline.</button>
-	<button class="spin">spin</button>
-	<button id="vowels">I'd like to buy a vowel.</button>
-	<div class="letters vowels">
-		<button id="A" class="letter">A</button>
-		<button id="E" class="letter">E</button>
-		<button id="I" class="letter">I</button>
-		<button id="O" class="letter">O</button>
-		<button id="U" class="letter">U</button>
-	</div>
-
-	<button id="consts" disabled>I would like a</button>
-	<div class="letters consts">
-		<button id="B" class="letter">B</button>
-		<button id="C" class="letter">C</button>
-		<button id="D" class="letter">D</button>
-		<button id="F" class="letter">F</button>
-		<button id="G" class="letter">G</button>
-		<button id="H" class="letter">H</button>
-		<button id="J" class="letter">J</button>
-		<button id="K" class="letter">K</button>
-		<button id="L" class="letter">L</button>
-		<button id="M" class="letter">M</button>
-		<button id="N" class="letter">N</button>
-		<button id="P" class="letter">P</button>
-		<button id="Q" class="letter">Q</button>
-		<button id="R" class="letter">R</button>
-		<button id="S" class="letter">S</button>
-		<button id="T" class="letter">T</button>
-		<button id="V" class="letter">V</button>
-		<button id="W" class="letter">W</button>
-		<button id="X" class="letter">X</button>
-		<button id="Y" class="letter">Y</button>
-		<button id="Z" class="letter">Z</button>
-	</div>
-</div>
-<div id="askForALifeLine">
-    <h2>Lifeline: Ask for Help From a Friend</h2>
-    <form id="lifelineForm" action="sendmail.php" method="post">
-        <label for="emailTo">Recipient Email Address
-            <input type="text" name="emailTo" id="emailTo" />
-        </label>
-
-        <label for="emailFrom">Your Email Address
-            <input type="text" name="emailFrom" id="emailFrom" />
-        </label>
-
-        <input type="submit" />
-    </form>
-</div>
-
-<audio id="audio-spin" preload="auto">
-	<source src='./sounds/wheel.mp3' />
-</audio>
-<script src="./js/jquery.js"></script>
-<script src="./js/wheel-of-headlines.js"></script>
-</body>
+				<button id="const" disabled>THE LETTER ...</button>
+				<section class="letters consts">
+					<button id="B" class="letter">B</button>
+					<button id="C" class="letter">C</button>
+					<button id="D" class="letter">D</button>
+					<button id="F" class="letter">F</button>
+					<button id="G" class="letter">G</button>
+					<button id="H" class="letter">H</button>
+					<button id="J" class="letter">J</button>
+					<button id="K" class="letter">K</button>
+					<button id="L" class="letter">L</button>
+					<button id="M" class="letter">M</button>
+					<button id="N" class="letter">N</button>
+					<button id="P" class="letter">P</button>
+					<button id="Q" class="letter">Q</button>
+					<button id="R" class="letter">R</button>
+					<button id="S" class="letter">S</button>
+					<button id="T" class="letter">T</button>
+					<button id="V" class="letter">V</button>
+					<button id="W" class="letter">W</button>
+					<button id="X" class="letter">X</button>
+					<button id="Y" class="letter">Y</button>
+					<button id="Z" class="letter">Z</button>
+				</section>
+			</div>
+		</div>
+		<form id="lifelineForm" action="sendmail.php" method="post">
+			<h2>Lifeline: Ask for Help From a Friend</h2>
+			<label for="emailTo">SEND TO:&nbsp;</label><input
+			type="text" name="emailTo" id="emailTo" placeholder="EMAIL@DOMAIN" required /><label
+			for="emailFrom">FROM ME:&nbsp;</label><input
+			type="text" name="emailFrom" id="emailFrom" placeholder="EMAIL@DOMAIN" required />
+			<button>SEND</button>
+		</form>
+		<audio id="audio-spin" preload="auto">
+			<source src='./sounds/wheel.mp3' />
+		</audio>
+		<script src="./js/jquery.js"></script>
+		<script src="./js/wheel-of-headlines.js"></script>
+	</body>
 </html>

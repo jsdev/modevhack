@@ -1,8 +1,17 @@
-var headlineURL = 'http://api.usatoday.com/open/articles/mobile/topnews?api_key=w3vb9xvbuvue8g8e3tbpp6un&encoding=json';
+var headlineURL = 'http://api.usatoday.com/open/articles/mobile/topnews?api_key=w3vb9xvbuvue8g8e3tbpp6un&encoding=json',
+	headlines= ["Sheriff: Colo. school shooting suspect is dead", "Wichita tech arrested in plot to bomb airport", "Senate Republican opposition rising to budget deal"];
 
-var headlines= ["Sheriff: Colo. school shooting suspect is dead", "Wichita tech arrested in plot to bomb airport", "Senate Republican opposition rising to budget deal"];
-
-var newStories= [];
+var LETTER = { //cache all letters:
+	A: document.getElementById('A'), B: document.getElementById('B'), C: document.getElementById('C'),
+	D: document.getElementById('D'), E: document.getElementById('E'), F: document.getElementById('F'),
+	G: document.getElementById('G'), H: document.getElementById('H'), I: document.getElementById('I'),
+	J: document.getElementById('J'), K: document.getElementById('K'), L: document.getElementById('L'),
+	M: document.getElementById('M'), N: document.getElementById('N'), O: document.getElementById('O'),
+	P: document.getElementById('P'), Q: document.getElementById('Q'),	R: document.getElementById('R'),
+	S: document.getElementById('S'), T: document.getElementById('T'),	U: document.getElementById('U'),
+	V: document.getElementById('V'), W: document.getElementById('W'), X: document.getElementById('X'),
+	Y: document.getElementById('Y'), Z: document.getElementById('Z')
+};
 
 // get headline api
 $.ajax({
@@ -24,138 +33,45 @@ $.ajax({
 		});
 		if(newStories.length){
 			headlines = newStories;
+			nextHeadline();
 		}
-		nextHeadline();
 	},
 	error: function( e ) {
 		console.log( e );
 	}
 });
 
-var checkForCommands = function () {
-	var said = $('.mic').val().toUpperCase(),
-		last;
+var showAllLetters = function () {
+	$card.filter('.flipped').removeClass('flipped');
+};
 
-	if (1 + said.indexOf('SPIN')) {
+var checkForCommands = function () {
+	var said = $mic.val(),
+		last = said.slice(-1),
+		letter = 1 + said.indexOf("letter"),
+		isVowel = 1 + ['A','E','I','O','U'].indexOf(last),
+		isUpper = last === last.toUpperCase() ;
+
+	if (1 + said.indexOf('solve')) {
+		if ($board.text() === said.toUpperCase().replace(/\s/g,"")) {
+			showAllLetters();
+			$total.innerHTML = [parseInt($score.innerHTML) + parseInt($total.innerHTML)].toString();
+		}
+	}
+
+	if (1 + said.indexOf('spin') || 1 + said.indexOf('wheel')) {
 		$spin.click();
 		return;
 	}
-	if (1 + said.indexOf('BUY THE LETTER')) {
-		last = said.slice(-1);
-		if (1 + last.indexOf('A')) {
-			$('#A').click();
-			return;
-		}
-		if (1 + last.indexOf('E')) {
-			$('#E').click();
-			return;
-		}
-		if (1 + last.indexOf('I')) {
-			$('#I').click();
-			return;
-		}
-		if (1 + last.indexOf('O')) {
-			$('#O').click();
-			return;
-		}
-		if (1 + last.indexOf('U')) {
-			$('#U').click();
-			return;
-		}
-		$vowels.click();
+
+	if (1 + said.indexOf('buy') || 1 + said.indexOf('vowel') || 1 + said.indexOf('vail')) {
+		[isVowel ? LETTER[last] : $vowel].click();
 		return;
 	}
 
-	if (1 + said.indexOf("THE LETTER")) {
-		last = said.slice(-1);
-		if (1 + last.indexOf('B')) {
-			$('#B').click();
-			return;
-		}
-		if (1 + last.indexOf('C')) {
-			$('#C').click();
-			return;
-		}
-		if (1 + last.indexOf('D')) {
-			$('#D').click();
-			return;
-		}
-		if (1 + last.indexOf('F')) {
-			$('#F').click();
-			return;
-		}
-		if (1 + last.indexOf('G')) {
-			$('#G').click();
-			return;
-		}
-		if (1 + last.indexOf('H')) {
-			$('#H').click();
-			return;
-		}
-		if (1 + last.indexOf('J')) {
-			$('#J').click();
-			return;
-		}
-		if (1 + last.indexOf('K')) {
-			$('#K').click();
-			return;
-		}
-		if (1 + last.indexOf('L')) {
-			$('#L').click();
-			return;
-		}
-		if (1 + last.indexOf('M')) {
-			$('#M').click();
-			return;
-		}
-		if (1 + last.indexOf('N')) {
-			$('#N').click();
-			return;
-		}
-		if (1 + last.indexOf('P')) {
-			$('#P').click();
-			return;
-		}
-		if (1 + last.indexOf('Q')) {
-			$('#Q').click();
-			return;
-		}
-		if (1 + last.indexOf('R')) {
-			$('#R').click();
-			return;
-		}
-		if (1 + last.indexOf('S')) {
-			$('#S').click();
-			return;
-		}
-		if (1 + last.indexOf('T')) {
-			$('#T').click();
-			return;
-		}
-		if (1 + last.indexOf('V')) {
-			$('#V').click();
-			return;
-		}
-		if (1 + last.indexOf('W')) {
-			$('#W').click();
-			return;
-		}
-		if (1 + last.indexOf('X')) {
-			$('#X').click();
-			return;
-		}
-		if (1 + last.indexOf('Y')) {
-			$('#Y').click();
-			return;
-		}
-		if (1 + last.indexOf('Z')) {
-			$('#Z').click();
-			return;
-		}
-		$consts.click();
-		return;
+	if (letter) {
+		[isUpper ? LETTER[last] : $const].click();
 	}
-
 };
 
 if( document.createElement('input').webkitSpeech !== undefined ) {
@@ -163,77 +79,93 @@ if( document.createElement('input').webkitSpeech !== undefined ) {
 		.find('input')[0].onwebkitspeechchange = checkForCommands;
 }
 
-var $board = $('.board'),
-	$solve = document.getElementById('solve'),
-	$consts = $('#consts'),
-	$vowels = $('#vowels'),
+var $game = $('.game'),
+	$board = $('.board'),
+	$next = $('#next'),
+	$mic = $('.mic'),
+	$solve = $('#solve'),
+	$const = $('#const'),
+	$consts = $('.consts'),
+	$sendgridForm = $('#lifelineForm'),
+	$vowel = $('#vowel'),
+	$vowels = $('.vowels'),
 	$spin = $('.spin'),
 	$letters = $('.letters'),
 	$card, wheelValue,
 	$wheel = $('.wheel'),
 	$stake = $('.stake'),
 	$score = document.getElementById('score'),
+	$total = document.getElementById('total'),
 	capitalLetter =/^[A-Z]*$/,
 	nextHeadline = function () {
-	var $frag = $('<div/>'),
-		className,
-		headline = headlines.pop(),
-		chars = headline.toUpperCase().split('');
-	for (var i = 0, len = chars.length, char = chars[i]; i < len; i++, char = chars[i] ) {
-		className = char.match(capitalLetter) ? 'card ' + char + ' flipped' : 'card';
-		switch (char) {
-			case " ":
-				$frag.append('<section class="container" />');
-				break;
-			default:
-				$frag.append('<section class="container"><div class="'+className+'"><figure class="front">'+char+'</figure><figure class="back"></figure></div></section>');
+		var $frag = $('<div/>'),
+			className,
+			headline = headlines.pop(),
+			chars = headline.toUpperCase().split('');
+		for (var i = 0, len = chars.length, char = chars[i]; i < len; i++, char = chars[i] ) {
+			className = char.match(capitalLetter) ? 'card ' + char + ' flipped' : 'card';
+			switch (char) {
+				case " ":
+					$frag.append('<section class="container" />');
+					break;
+				default:
+					$frag.append('<section class="container"><article class="'+className+'"><span class="front">'+char+'</span><span class="back"></span></article></section>');
+			}
 		}
-	}
-	$board.empty().append($frag.html());
-	$letters.prop('disabled', false);
-	$card = $('.card');
-	$('#consts').prop('disabled', true);
-	$('.vowels, .consts').hide();
-};
+		$board.empty().append($frag.html());
+		$letters.prop('disabled', false);
+		$card = $('.card');
+		$const.prop('disabled', true);
+		$vowels.hide();
+		$consts.hide();
+	};
 
 nextHeadline();
 
 var checkForLetter = function(letter){
-		var $matches = $card.filter('.'+letter), temp, currentScore = $score.innerHTML;
-		$matches.toggleClass('flipped');
-		switch(wheelValue) {
-			default:
-				temp = parseInt(wheelValue.replace('$','')) * $matches.length;
-				temp = currentScore ? temp + parseInt(currentScore) : temp;
-				$score.innerHTML = temp.toString();
+		var $matches = $card.filter('.'+letter),
+			temp, currentScore = $score.innerHTML,
+			len = $matches.length;
+
+		$spin.prop('disabled', false);
+		if (len) {
+			$matches.toggleClass('flipped');
+			temp = parseInt(wheelValue.replace('$','')) * len;
+			temp = currentScore ? temp + parseInt(currentScore) : temp;
+			$score.innerHTML = temp.toString();
+			return true;
 		}
+		return false;
+
+	},
+	checkForVowel = function(letter){
+		$card.filter('.'+letter).toggleClass('flipped');
+		$score.innerHTML = [parseInt($score.innerHTML)-250].toString();
 		$spin.prop('disabled', false);
 	};
 
 $letters.on('click', '.letter', function (e) {
 	e.currentTarget.disabled = true;
-	$consts[0].disabled = true;
+	$spin.prop('disabled', false);
+});
+
+$vowel.on('click', function () {
+	$vowels.show();
+});
+
+$vowels.find('.letter').on('click', function (e) {
+	checkForVowel(e.currentTarget.innerHTML);
+	$vowels.hide();
+});
+
+$const.on('click', function () {
+	$consts.show();
+});
+
+$consts.find('.letter').on('click', function (e) {
 	checkForLetter(e.currentTarget.innerHTML);
-});
-
-$vowels.on('click', function (e) {
-	e.currentTarget.disabled = true;
-	$('.vowels').show();
-});
-
-$('.vowels .letter').on('click', function () {
-	$('.vowels').hide();
+	$consts.hide();
 })
-
-$consts.on('click', function (e) {
-	e.currentTarget.disabled = true;
-	$('.consts').show();
-});
-
-$('.consts .letter').on('click', function () {
-	$('.consts').hide();
-})
-
 
 var wheel = {
 		timerHandle : 0,
@@ -242,9 +174,7 @@ var wheel = {
 		angleDelta : 0,
 		size : 150,
 		canvasContext : null,
-		colors : ['#AA0000', '#235780', '#13732E', '#2674AF', '#566471'],
 		segments : [],
-		seg_colors : ['#AA0000', '#235780', '#13732E', '#2674AF', '#566471'],
 		maxSpeed : Math.PI / 16,
 		upTime : 1000,
 		downTime : 17000,
@@ -253,8 +183,8 @@ var wheel = {
 		centerX : 155,
 		centerY : 158,
 		spin : function() {
-			$vowels.prop('disabled', true);
-			$solve.disabled = true;
+			$vowel.prop('disabled', true);
+			$solve.prop('disabled', true);
 			$spin.prop('disabled', true);
 			$board.hide();
 			$wheel.show();
@@ -285,8 +215,7 @@ var wheel = {
 			}
 
 			wheel.angleCurrent += wheel.angleDelta;
-			while (wheel.angleCurrent >= Math.PI * 2)
-				// Keep the angle in a reasonable range
+			while (wheel.angleCurrent >= Math.PI * 2)// Keep the angle in a reasonable range
 				wheel.angleCurrent -= Math.PI * 2;
 
 			if (finished) {
@@ -295,20 +224,20 @@ var wheel = {
 				wheel.angleDelta = 0;
 				$wheel.hide();
 				$board.show();
+				$solve.prop('disabled', false);
+				$stake.html(wheelValue);
 				switch(wheelValue) {
 					case 'LOSE TURN':
 						alert('IF YOU HAD FRIENDS IT WOULD BE THEIR TURN.');
 						$spin.prop('disabled', false);
-						break;
+						return;
 					case 'BANKRUPT':
 						$score.innerHTML = '0';
 						$spin.prop('disabled', false);
-						break;
+						return;
 					default:
-						$stake.html(wheelValue);
-						$consts.prop('disabled', false);
+						$const.prop('disabled', false);
 				}
-				$solve.disabled = false;
 			}
 		},
 
@@ -329,8 +258,7 @@ var wheel = {
 		},
 
 		initCanvas : function() {
-			var canvas = $('.wheel #canvas').get(0);
-			wheel.canvasContext = canvas.getContext("2d");
+			wheel.canvasContext = $('.wheel #canvas').get(0).getContext("2d");
 		},
 
 		initWheel : function() {
@@ -344,7 +272,7 @@ var wheel = {
 			wheel.angleCurrent = ((r + 0.5) / wheel.segments.length) * Math.PI * 2;
 			wheel.seg_color = [
 				'#000',
-				'#8915fe',
+				'#81f',
 				'#ff1',
 				'#0f8',
 				'#fff',
@@ -352,7 +280,7 @@ var wheel = {
 				'#08f',
 				'#f8c',
 				'#0f8',
-				'#8915fe',
+				'#81f',
 				'#000',
 				'#CCC',
 				'#f80',
@@ -360,7 +288,7 @@ var wheel = {
 				'#ff0',
 				'#f8c',
 				'#ff1',
-				'#8915fe',
+				'#81f',
 				'#f80',
 				'#f8c',
 				'#0f8',
@@ -383,7 +311,7 @@ var wheel = {
 		},
 
 		drawNeedle : function() {
-			var ctx =     wheel.canvasContext,
+			var ctx =   wheel.canvasContext,
 				centerX = wheel.centerX,
 				centerY = wheel.centerY,
 				size =    wheel.size;
@@ -401,7 +329,6 @@ var wheel = {
 
 			var i = wheel.segments.length - Math.floor((wheel.angleCurrent / (Math.PI * 2))	* wheel.segments.length) - 1;
 			wheelValue = wheel.segments[i];
-
 		},
 
 		drawSegment : function(key, lastAngle, angle) {
@@ -460,7 +387,7 @@ var wheel = {
 			ctx.strokeStyle  = '#000';
 			ctx.textBaseline = "middle";
 			ctx.textAlign    = "center";
-			ctx.font         = "1em Arial";
+			ctx.font         = "14px Arial";
 
 			for (var i = 1; i <= len; i++) {
 				var angle = PI2 * (i / len) + angleCurrent;
@@ -522,7 +449,27 @@ setTimeout(function() {
 
 
 $spin.on('click', wheel.spin);
-$('#next').on('click', nextHeadline);
+$next.on('click', nextHeadline);
+$solve.on('click', function () {
+
+});
+$('.sendgrid').on('click', function () {
+	$sendgridForm.css('display', 'inline-block');
+	$game.css('display', 'none');
+});
+
+$sendgridForm.find('button').on('click', function () {
+	$sendgridForm.css('display', '');
+	$game.css('display', '');
+});
+
+var $body = $('body'),
+	$window = $(window);
+if ($window.height() < $window.width()) {
+	$body.css('font-size', Math.floor($window.height()/24) +'px');
+} else {
+	$body.css('font-size', Math.floor($window.width()/26) +'px');
+}
 
 Element.prototype.hasClassName = function (a) {
 	return new RegExp("(?:^|\\s+)" + a + "(?:\\s+|$)").test(this.className);
@@ -544,3 +491,65 @@ Element.prototype.removeClassName = function (b) {
 Element.prototype.toggleClassName = function (a) {
 	this[this.hasClassName(a) ? "removeClassName" : "addClassName"](a);
 };
+
+/**
+ @author <a href="mailto:aaditmshah@myopera.com">Aadit M Shah</a>
+ @overview Delta Timing for JavaScript.
+ @copyright 2012
+ @version 1.0.0
+ */
+
+/**
+ @description Creates a new Delta Timer with start and stop methods.
+ @constructor
+ @param {function} render The callback to render for animations.
+ @param {number} interval The interval of the timer in milliseconds.
+ */
+
+function DeltaTimer(render, interval) {
+	var timeout;
+	var lastTime;
+
+	this.start = start;
+	this.stop = stop;
+
+	/**
+	 @description Start the timer.
+	 @public
+	 @function
+	 @returns {number} The UTC time in milliseconds when the timer started.
+	 */
+
+	function start() {
+		timeout = setTimeout(loop, 0);
+		lastTime = Date.now();
+		return lastTime;
+	}
+
+	/**
+	 @description Stop the timer.
+	 @public
+	 @function
+	 @returns {number} The UTC time in milliseconds when the timer stopped.
+	 */
+
+	function stop() {
+		clearTimeout(timeout);
+		return lastTime;
+	}
+
+	/**
+	 @description Loop the timer continuously and call the render function.
+	 @private
+	 @function
+	 */
+
+	function loop() {
+		var thisTime = Date.now();
+		var deltaTime = thisTime - lastTime;
+		var delay = Math.max(interval - deltaTime, 0);
+		timeout = setTimeout(loop, delay);
+		lastTime = thisTime + delay;
+		render(thisTime);
+	}
+}

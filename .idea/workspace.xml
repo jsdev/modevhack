@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef2251c3-1620-404d-8eea-1d8b4cff4cc3" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/sendgrid.jpeg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wheel-of-headlines.html" afterPath="$PROJECT_DIR$/wheel-of-headlines.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/wheel-of-headlines.js" afterPath="$PROJECT_DIR$/js/wheel-of-headlines.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/wheel.css" afterPath="$PROJECT_DIR$/css/wheel.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -9,9 +11,11 @@
     <ignored path="modevhack.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="ef2251c3-1620-404d-8eea-1d8b4cff4cc3" time="1386952959780" ignored="false" />
-    <file path="/wheel-of-headlines.html" changelist="ef2251c3-1620-404d-8eea-1d8b4cff4cc3" time="1386972767047" ignored="false" />
-    <file path="/wheel-of-headlines.js" changelist="ef2251c3-1620-404d-8eea-1d8b4cff4cc3" time="1386974804428" ignored="false" />
-    <file path="/wheel.css" changelist="ef2251c3-1620-404d-8eea-1d8b4cff4cc3" time="1386971444346" ignored="false" />
+    <file path="/wheel-of-headlines.html" changelist="ef2251c3-1620-404d-8eea-1d8b4cff4cc3" time="1387169686835" ignored="false" />
+    <file path="/wheel-of-headlines.js" changelist="ef2251c3-1620-404d-8eea-1d8b4cff4cc3" time="1387205251304" ignored="false" />
+    <file path="/wheel.css" changelist="ef2251c3-1620-404d-8eea-1d8b4cff4cc3" time="1387171889052" ignored="false" />
+    <file path="/a.dummy" changelist="ef2251c3-1620-404d-8eea-1d8b4cff4cc3" time="1387123429816" ignored="false" />
+    <file path="$PROJECT_DIR$/../mission-health-web/src/css/bootstrap.scss" changelist="ef2251c3-1620-404d-8eea-1d8b4cff4cc3" time="1387123500171" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,19 +38,8 @@
       <file leaf-file-name="wheel-of-headlines.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wheel-of-headlines.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="103" selection-start="1197" selection-end="1197" vertical-scroll-proportion="-1.7647059">
+            <state line="18" column="174" selection-start="630" selection-end="632" vertical-scroll-proportion="-1.7647059">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jquery.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/jquery.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2203" column="36" selection-start="61702" selection-end="61702" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -54,16 +47,23 @@
       <file leaf-file-name="wheel-of-headlines.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/wheel-of-headlines.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="153" column="25" selection-start="2946" selection-end="2946" vertical-scroll-proportion="0.3088">
+            <state line="133" column="8" selection-start="4418" selection-end="4418" vertical-scroll-proportion="0.55324674">
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sendgrid.jpeg" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/img/sendgrid.jpeg">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="wheel.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/wheel.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="137" column="1" selection-start="2525" selection-end="2525" vertical-scroll-proportion="-26.84">
+            <state line="28" column="44" selection-start="506" selection-end="506" vertical-scroll-proportion="-7.24">
               <folding />
             </state>
           </provider>
@@ -95,10 +95,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="235" />
-    <option name="y" value="22" />
-    <option name="width" value="1440" />
-    <option name="height" value="874" />
+    <option name="x" value="337" />
+    <option name="y" value="40" />
+    <option name="width" value="797" />
+    <option name="height" value="838" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -155,7 +155,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sounds" />
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -169,7 +169,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="img" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -192,20 +192,37 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="53" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="55" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="54" />
     <property name="options.lastSelected" value="coverage" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="JavaScriptLanguageLevel" value="ES5" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="57" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="577" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="566" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="57" />
     <property name="JavaScriptPreferStrict" value="true" />
-    <property name="options.searchVisible" value="true" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="56" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/sounds" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/img" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/js" />
       <recent name="$PROJECT_DIR$/css" />
@@ -239,18 +256,18 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="235" y="22" width="1440" height="874" extended-state="6" />
+    <frame x="337" y="40" width="797" height="838" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21383204" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39147288" sideWeight="0.6545961" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3454039" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -323,30 +340,35 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/js/jquery.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2203" column="36" selection-start="61702" selection-end="61702" vertical-scroll-proportion="0.0">
+        <state line="2182" column="11" selection-start="61038" selection-end="61039" vertical-scroll-proportion="-0.41424417">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/img/sendgrid.jpeg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/css/wheel.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="137" column="1" selection-start="2525" selection-end="2525" vertical-scroll-proportion="-26.84">
+        <state line="28" column="44" selection-start="506" selection-end="506" vertical-scroll-proportion="-7.24">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wheel-of-headlines.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="103" selection-start="1197" selection-end="1197" vertical-scroll-proportion="-1.7647059">
+        <state line="18" column="174" selection-start="630" selection-end="632" vertical-scroll-proportion="-1.7647059">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/wheel-of-headlines.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="153" column="25" selection-start="2946" selection-end="2946" vertical-scroll-proportion="0.3088">
+        <state line="133" column="8" selection-start="4418" selection-end="4418" vertical-scroll-proportion="0.55324674">
           <folding />
         </state>
       </provider>
