@@ -471,6 +471,68 @@ if ($window.height() < $window.width()) {
 	$body.css('font-size', Math.floor($window.width()/26) +'px');
 }
 
+
+/* form handling */
+var lifeline = {
+    myObjs : function(){
+        this.$el = $('#lifelineForm');
+        this.$submit = this.$el.find('#submitLifeLine');
+        this.$board = $('.board');
+        this.div = $('#askForALifeLine');
+    },
+
+    init : function(){
+        this.myObjs();
+        this.assignHandlers();
+    },
+
+    assignHandlers : function(){
+        var self = this;
+        this.$el.submit(function(evt){
+            evt.preventDefault();
+            self.buildRequest(evt);
+        });
+    },
+
+    buildRequest: function(){
+       var inputs = this.$el.serializeArray();
+       var html = this.buildTable();
+       inputs.push({'name' : 'html', 'value' : html});
+       console.log(inputs);
+
+       $.post( "sendmail.php", inputs );
+       this.div.append('Your LifeLine has been sent out.');
+    },
+
+    buildTable: function(){
+        var $sections = this.$board.find('section.container'),
+            self = this,
+            html = '<table width=\"100%\"><tr>';
+
+        $sections.each(function(){
+            var $me = $(this),
+                isFlipped = $me.find('.card').hasClass('flipped'),
+                letter = $me.find('figure').filter(function () {
+                    return (this.textContent || this.innerText);
+                }).text(),
+                isBlank = ($me.find('.card').length === 0),
+                myStyle = (isBlank) ? 'style = \"background-color: rgb(0, 136, 0);\"' : 'style = \"background-color: rgb(0, 0, 170);\"' ;
+                if(!isBlank && !isFlipped) {
+                    myStyle = 'style=\"background-color: #ffffff;\"';
+                }
+                myStyle += ' width:10%; height:20px;';
+            var myText = (letter && !isFlipped) ? letter : '&nbsp;',
+                myHTML = '<td ' + myStyle + '>' + myText + '</td>';
+            html += myHTML;
+        });
+        html += '</tr></table>';
+        return html;
+    }
+};
+
+lifeline.init();
+
+
 Element.prototype.hasClassName = function (a) {
 	return new RegExp("(?:^|\\s+)" + a + "(?:\\s+|$)").test(this.className);
 };
@@ -491,65 +553,3 @@ Element.prototype.removeClassName = function (b) {
 Element.prototype.toggleClassName = function (a) {
 	this[this.hasClassName(a) ? "removeClassName" : "addClassName"](a);
 };
-
-/**
- @author <a href="mailto:aaditmshah@myopera.com">Aadit M Shah</a>
- @overview Delta Timing for JavaScript.
- @copyright 2012
- @version 1.0.0
- */
-
-/**
- @description Creates a new Delta Timer with start and stop methods.
- @constructor
- @param {function} render The callback to render for animations.
- @param {number} interval The interval of the timer in milliseconds.
- */
-
-function DeltaTimer(render, interval) {
-	var timeout;
-	var lastTime;
-
-	this.start = start;
-	this.stop = stop;
-
-	/**
-	 @description Start the timer.
-	 @public
-	 @function
-	 @returns {number} The UTC time in milliseconds when the timer started.
-	 */
-
-	function start() {
-		timeout = setTimeout(loop, 0);
-		lastTime = Date.now();
-		return lastTime;
-	}
-
-	/**
-	 @description Stop the timer.
-	 @public
-	 @function
-	 @returns {number} The UTC time in milliseconds when the timer stopped.
-	 */
-
-	function stop() {
-		clearTimeout(timeout);
-		return lastTime;
-	}
-
-	/**
-	 @description Loop the timer continuously and call the render function.
-	 @private
-	 @function
-	 */
-
-	function loop() {
-		var thisTime = Date.now();
-		var deltaTime = thisTime - lastTime;
-		var delay = Math.max(interval - deltaTime, 0);
-		timeout = setTimeout(loop, delay);
-		lastTime = thisTime + delay;
-		render(thisTime);
-	}
-}
