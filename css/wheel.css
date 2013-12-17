@@ -41,7 +41,6 @@ div {	position: relative; margin-bottom: .3em; }
 	text-align: left;
 }
 
-
 .user-settings b{
 	display: inline-block;
 	width: 49%;
@@ -153,6 +152,20 @@ h1 b {
 	-moz-transform: rotateY(180deg);
 	-o-transform: rotateY(180deg);
 	transform: rotateY(180deg);
+}
+
+.highlight .back {
+	background: rgba(255,215,0,1); /* Old browsers */
+	background: -moz-linear-gradient(left, rgba(255,215,0,1) 0%, rgba(255,215,0,0.8) 100%); /* FF3.6+ */
+	background: -webkit-linear-gradient(left, rgba(255,215,0,1) 0%,rgba(255,215,0,0.8) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left, rgba(255,215,0,1) 0%,rgba(255,215,0,0.8) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left, rgba(255,215,0,1) 0%,rgba(255,215,0,0.8) 100%); /* IE10+ */
+	background: linear-gradient(to right, rgba(255,215,0,1) 0%,rgba(255,215,0,0.8) 100%); /* W3C */
+	-webkit-transform: rotateY(180deg);
+	-webkit-transition: background .2s;
+	-moz-transition: background .2s;
+	-o-transition: background .2s;
+	transition: background .2s;
 }
 
 .wheel {

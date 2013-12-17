@@ -52,25 +52,30 @@ var checkForCommands = function () {
 		isVowel = 1 + ['A','E','I','O','U'].indexOf(last),
 		isUpper = last === last.toUpperCase() ;
 
-	if (1 + said.indexOf('solve')) {
-		if ($board.text() === said.toUpperCase().replace(/\s/g,"")) {
+	if (solve.disabled) {
+		console.log(said.toUpperCase());
+		if (1 + said.toUpperCase().replace(/\s/g,"").indexOf($board.text())) {
 			showAllLetters();
-			$total.innerHTML = [parseInt($score.innerHTML) + parseInt($total.innerHTML)].toString();
+			total.innerHTML = [parseInt(score.innerHTML) + parseInt(total.innerHTML)].toString();
 		}
 	}
 
+	if (1 + said.indexOf('solve')) {
+		solve.click();
+	}
+
 	if (1 + said.indexOf('spin') || 1 + said.indexOf('wheel')) {
-		$spin.click();
+		spin.click();
 		return;
 	}
 
 	if (1 + said.indexOf('buy') || 1 + said.indexOf('vowel') || 1 + said.indexOf('vail')) {
-		[isVowel ? LETTER[last] : $vowel].click();
+		(isVowel ? LETTER[last] : vowel).click();
 		return;
 	}
 
 	if (letter) {
-		[isUpper ? LETTER[last] : $const].click();
+		(isUpper ? LETTER[last] : consonant).click();
 	}
 };
 
@@ -81,21 +86,21 @@ if( document.createElement('input').webkitSpeech !== undefined ) {
 
 var $game = $('.game'),
 	$board = $('.board'),
-	$next = $('#next'),
+	newHeadline = document.getElementById('new-headline'),
 	$mic = $('.mic'),
-	$solve = $('#solve'),
-	$const = $('#const'),
-	$consts = $('.consts'),
+	solve =  document.getElementById('solve'),
+	consonant = document.getElementById('consonant'),
+	$consonants = $('.consonants .letter'),
 	$sendgridForm = $('#lifelineForm'),
-	$vowel = $('#vowel'),
-	$vowels = $('.vowels'),
-	$spin = $('.spin'),
-	$letters = $('.letters'),
+	vowel =  document.getElementById('vowel'),
+	$vowels = $('.vowels .letter'),
+	spin = document.getElementById('spin'),
+	$letters = $('.letter'),
 	$card, wheelValue,
 	$wheel = $('.wheel'),
 	$stake = $('.stake'),
-	$score = document.getElementById('score'),
-	$total = document.getElementById('total'),
+	score = document.getElementById('score'),
+	total = document.getElementById('total'),
 	capitalLetter =/^[A-Z]*$/,
 	nextHeadline = function () {
 		var $frag = $('<div/>'),
@@ -113,58 +118,80 @@ var $game = $('.game'),
 			}
 		}
 		$board.empty().append($frag.html());
-		$letters.prop('disabled', false);
 		$card = $('.card');
-		$const.prop('disabled', true);
-		$vowels.hide();
-		$consts.hide();
+		consonant.disabled = true;
+		$vowels.parent().hide();
+		$consonants.parent().hide();
 	};
 
 nextHeadline();
 
-var checkForLetter = function(letter){
-		var $matches = $card.filter('.'+letter),
-			temp, currentScore = $score.innerHTML,
+var showAndTurn = function ($matches) {
+		var len = $matches.length,
+			i = 0,
+			show = function () {
+				$matches.eq(i).addClass('highlight');
+			},
+			turn = function () {
+				$matches.eq(i++).removeClass('flipped');
+				if (i < len) {
+					setTimeout(show, 200);
+					setTimeout(turn, 1000);
+				}
+			};
+		show();
+		turn();
+	},
+	checkForLetter = function(letter) {
+		var temp, currentScore = score.innerHTML,
+			$matches = $card.filter('.'+letter),
 			len = $matches.length;
 
-		$spin.prop('disabled', false);
+		spin.disabled = false;
 		if (len) {
-			$matches.toggleClass('flipped');
+			showAndTurn($matches);
 			temp = parseInt(wheelValue.replace('$','')) * len;
 			temp = currentScore ? temp + parseInt(currentScore) : temp;
-			$score.innerHTML = temp.toString();
+			score.innerHTML = temp.toString();
 			return true;
 		}
 		return false;
 
 	},
 	checkForVowel = function(letter){
-		$card.filter('.'+letter).toggleClass('flipped');
-		$score.innerHTML = [parseInt($score.innerHTML)-250].toString();
-		$spin.prop('disabled', false);
+		showAndTurn($card.filter('.'+letter));
+		score.innerHTML = [parseInt(score.innerHTML)-250].toString();
+		spin.disabled = false;
 	};
 
-$letters.on('click', '.letter', function (e) {
+$letters.on('click', function (e) {
 	e.currentTarget.disabled = true;
-	$spin.prop('disabled', false);
+	spin.disabled = false;
 });
 
-$vowel.on('click', function () {
-	$vowels.show();
+vowel.addEventListener('click', function () {
+	$vowels.parent().show();
 });
 
-$vowels.find('.letter').on('click', function (e) {
+$vowels.on('click', function (e) {
 	checkForVowel(e.currentTarget.innerHTML);
-	$vowels.hide();
+	$vowels.parent().hide();
+	vowel.disabled = $vowels.length === $vowels.filter(':disabled').length;
 });
 
-$const.on('click', function () {
-	$consts.show();
+consonant.addEventListener('click', function () {
+	$consonants.parent().show();
 });
 
-$consts.find('.letter').on('click', function (e) {
+$consonants.on('click', function (e) {
 	checkForLetter(e.currentTarget.innerHTML);
-	$consts.hide();
+	vowel.disabled = $vowels.length === $vowels.filter(':disabled').length;
+	$consonants.parent().hide();
+	spin.disabled = $consonants.length === $consonants.filter(':disabled').length;
+	if (spin.disabled) {
+		alert('Only vowels remain.');
+	}
+	consonant.disabled = true; //require spin
 })
 
 var wheel = {
@@ -183,9 +210,9 @@ var wheel = {
 		centerX : 155,
 		centerY : 158,
 		spin : function() {
-			$vowel.prop('disabled', true);
-			$solve.prop('disabled', true);
-			$spin.prop('disabled', true);
+			vowel.disabled = true;
+			solve.disabled = true;
+			spin.disabled = true;
 			$board.hide();
 			$wheel.show();
 			if (wheel.timerHandle === 0) {
@@ -224,19 +251,19 @@ var wheel = {
 				wheel.angleDelta = 0;
 				$wheel.hide();
 				$board.show();
-				$solve.prop('disabled', false);
+				solve.disabled = false;
 				$stake.html(wheelValue);
 				switch(wheelValue) {
 					case 'LOSE TURN':
 						alert('IF YOU HAD FRIENDS IT WOULD BE THEIR TURN.');
-						$spin.prop('disabled', false);
+						spin.disabled = false;
 						return;
 					case 'BANKRUPT':
-						$score.innerHTML = '0';
-						$spin.prop('disabled', false);
+						score.innerHTML = '0';
+						spin.disabled = false;
 						return;
 					default:
-						$const.prop('disabled', false);
+						consonant.disabled = false;
 				}
 			}
 		},
@@ -448,11 +475,13 @@ setTimeout(function() {
 }, 0);
 
 
-$spin.on('click', wheel.spin);
-$next.on('click', nextHeadline);
-$solve.on('click', function () {
-
+spin.addEventListener('click', wheel.spin);
+newHeadline.addEventListener('click', nextHeadline);
+solve.addEventListener('click', function () {
+	solve.disabled = true;
+	alert('Good luck.');
 });
+
 $('.sendgrid').on('click', function () {
 	$sendgridForm.css('display', 'inline-block');
 	$game.css('display', 'none');
